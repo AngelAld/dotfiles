@@ -1,0 +1,139 @@
+colors:
+  # night colorschemes
+  primary:
+    
+    background: '#303030'
+    foreground: '#D9D7D6'
+
+  cursor:
+    text:   CellForeground
+    cursor: '#D9D7D6'
+    
+  normal:
+    black:   '#1C252C'
+    red:     '#DF5B61'
+    green:   '#78B892'
+    yellow:  '#DE8F78'
+    blue:    '#6791C9'
+    magenta: '#BC83E3'
+    cyan:    '#67AFC1'
+    white:   '#D9D7D6'
+
+  bright:
+    black:   '#484E5B'
+    red:     '#F16269'
+    green:   '#8CD7AA'
+    yellow:  '#E9967E'
+    blue:    '#79AAEB'
+    magenta: '#C488EC'
+    cyan:    '#7ACFE4'
+    white:   '#E5E5E5'
+
+cursor:
+  
+  style:
+    shape: Underline
+    blinking: Always
+  
+  blink_interval: 500
+  unfocused_hollow: true
+  thickness: 0.15
+
+env:
+  TERM: xterm-256color
+
+window:
+  
+  opacity: 1
+  dynamic_padding: true
+  padding:
+    x: 0
+    y: 0
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
+
+shell:
+  program: /usr/bin/zsh
+
+# Font configuration
+font:
+  # Normal (roman) font face
+  normal:
+    # Font family
+    #
+    # Default:
+    #   - (macOS) Menlo
+    #   - (Linux/BSD) monospace
+    #   - (Windows) Consolas
+    family: JetBrainsMonoNL NFM
+
+    # The `style` can be specified to pick a specific face.
+    style: Regular
+
+  # Bold font face
+  bold:
+    # Font family
+    #
+    # If the bold family is not specified, it will fall back to the
+    # value specified for the normal font.
+    family: JetBrainsMonoNL NFM
+
+    # The `style` can be specified to pick a specific face.
+    style: Bold
+
+  # Italic font face
+  size: 11.0
+  italic:
+    # Font family
+    #
+    # If the italic family is not specified, it will fall back to the
+    # value specified for the normal font.
+    family: JetBrainsMonoNL NFM
+
+    # The `style` can be specified to pick a specific face.
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    # Font family
+    #
+    # If the bold italic family is not specified, it will fall back to the
+    # value specified for the normal font.
+    family: JetBrainsMonoNL NFM
+
+    # The `style` can be specified to pick a specific face.
+    style: Bold Italic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+live_config_reload: true
+draw_bold_text_with_bright_colors: true
+
+

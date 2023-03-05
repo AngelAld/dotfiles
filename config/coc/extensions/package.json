@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "coc-json": ">=1.7.0",
+    "coc-python": ">=1.2.13",
+    "coc-java": ">=1.5.5",
+    "coc-css": ">=2.0.0",
+    "coc-html": ">=1.8.0",
+    "coc-tsserver": ">=2.0.3",
+    "coc-pyright": ">=1.1.280",
+    "coc-yaml": ">=1.9.0",
+    "coc-sql": ">=0.10.5",
+    "coc-htmlhint": ">=0.6.1",
+    "coc-snippets": ">=3.1.5"
+  }
+}

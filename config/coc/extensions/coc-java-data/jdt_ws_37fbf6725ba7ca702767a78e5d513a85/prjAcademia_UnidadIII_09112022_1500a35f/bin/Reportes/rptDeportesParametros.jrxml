@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bd1dea00-1bac-415a-8953-665be06ae1b5">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="21"/>
+	<parameter name="nomDep" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select en.dnientrenador, en.nombre || ' ' || en.apellidos as nombres,
+telefono,direccion,correo, d.deporteid, d.nombre, d.descripcion
+from especialidad e inner join entrenador en
+on e.dnientrenador=en.dnientrenador inner join deporte d
+on e.deporteid=d.deporteid
+where d.nombre=$P{nomDep}]]>
+	</queryString>
+	<field name="dnientrenador" class="java.lang.String"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="correo" class="java.lang.String"/>
+	<field name="deporteid" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<variable name="dnientrenador_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{dnientrenador}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="84" y="19" width="392" height="28" uuid="09320d65-5615-4999-bf5e-a11b2295b93d"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTDE DE ENTRENADOS POR DEPORTE]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="381" y="59" width="174" height="20" uuid="fdf9cc53-eea2-48c4-b09b-387f95a0a6ce"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="72" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="26" width="555" height="35" backcolor="#CCCCCC" uuid="8ad778f8-4bfd-40c5-bb7d-2d0b3d5810c1"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="12" y="34" width="62" height="20" uuid="a3049e62-5bf8-448f-9e34-cedea78e1daf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="34" width="129" height="20" uuid="e6f64b5e-a336-4c90-b619-53cd5810a6b3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRENADOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="34" width="64" height="20" uuid="8a969ece-c69f-445a-85e2-0e6369e462b2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELÉFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="34" width="100" height="20" uuid="6e4420fa-59e7-4025-8ab5-efc0813226e1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="433" y="34" width="100" height="20" uuid="872a0316-52ce-48ef-b2e3-74ae8fa6107e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CORREO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="12" y="7" width="59" height="20" uuid="db5c5cd3-2f06-49d1-ba7a-987d12dda6aa"/>
+				<textFieldExpression><![CDATA[$F{dnientrenador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="74" y="7" width="178" height="20" uuid="719f01f1-2853-4a89-ba6d-d53dbb82571c"/>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="7" width="64" height="20" uuid="76d563be-9fcb-45b3-b25e-3948ed6065dc"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="7" width="117" height="20" uuid="de9757ad-89d7-4768-a03c-592c4f164240"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="433" y="7" width="100" height="20" uuid="08f3b310-f701-444f-991c-34379a5e4e3b"/>
+				<textFieldExpression><![CDATA[$F{correo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="29" width="554" height="1" uuid="a27e92b6-eef9-42c7-ab3a-7cdceb6e8bab"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="464" y="12" width="30" height="20" uuid="04a59126-fd19-466c-b43d-2e4355b44a14"/>
+				<textFieldExpression><![CDATA[$V{dnientrenador_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="221" y="12" width="243" height="20" uuid="7e7a2556-ae4c-441c-8a13-dc2eaf13a5c6"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[	TOTAL DE ENTRENADORES:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="533" y="0" width="22" height="20" uuid="4a57fd83-b41c-4376-80c5-c4eb35eece0c"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

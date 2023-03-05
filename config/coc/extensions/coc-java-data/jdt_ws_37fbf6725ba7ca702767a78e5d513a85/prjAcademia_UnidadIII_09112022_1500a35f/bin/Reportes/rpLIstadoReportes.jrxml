@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="20167f0d-2596-4595-babd-241e5fc47cef">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select deporteid,nombre,descripcion, case vigencia when true then 'Vigente' else 'No vigente' end as vigencia from deporte]]>
+	</queryString>
+	<field name="deporteid" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="vigencia" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="87" y="33" width="392" height="28" uuid="6acf3ba1-cdb3-46f9-88a4-1572a24a06e2"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTADO DE DEPORTES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="273" y="1" width="56" height="32" uuid="34e7a547-b7b0-4f4d-b928-5aaa8120912b"/>
+				<imageExpression><![CDATA["D:\\DAE\\prjAcademia_UnidadIII_17102022\\prjAcademia_UnidadIII\\prjAcademia_UnidadI\\src\\recursos\\logo1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="356" y="0" width="173" height="20" uuid="eb7c1a93-0bf2-4ca1-b269-82d6240cc367"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<rectangle>
+				<reportElement x="27" y="7" width="502" height="27" backcolor="#CCCCCC" uuid="92221359-3dcc-4815-a92b-51489ecd0653"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="44" y="14" width="100" height="20" uuid="17ff96b3-c9a3-42c0-8a04-a7d3103bdcc0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID DEPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="14" width="100" height="20" uuid="481c5359-f157-4df0-a1f9-7b6e58474d1f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="14" width="100" height="20" uuid="014d8a98-6fe8-437b-aaa9-56c460910cfc"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="14" width="100" height="20" uuid="9c9add31-d6f9-4212-bd55-67c174052a9f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VIGENCIA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="56" y="4" width="31" height="20" uuid="9cee1112-3837-48b4-ab09-e352a9329078"/>
+				<textFieldExpression><![CDATA[$F{deporteid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="4" width="100" height="20" uuid="ad513855-9736-4520-aa10-01ce91ae4b8a"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="4" width="173" height="20" uuid="b840d684-07ab-4f12-a492-deb4bd0db32b"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="4" width="82" height="20" uuid="02896c32-91ae-484b-8d08-cae5ec2236af"/>
+				<textFieldExpression><![CDATA[$F{vigencia}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="29" y="24" width="500" height="1" uuid="a192e95b-3bb6-4724-829a-ac03dedd35c9"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="28" y="0" width="1" height="25" uuid="a68adbad-67f5-4076-93f9-0643dcd9c202"/>
+			</line>
+			<line>
+				<reportElement x="528" y="0" width="1" height="25" uuid="0f67ce30-ba6f-4a4c-ae26-4636932884ed"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="26" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="503" y="10" width="26" height="20" uuid="6c89a4c8-59c5-4ad6-aab7-f14243545c40"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="15" splitType="Stretch"/>
+	</summary>
+</jasperReport>

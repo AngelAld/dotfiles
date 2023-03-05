@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="263bf389-d5ce-49a6-96be-628315e9b70c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from ambiente]]>
+	</queryString>
+	<field name="ambienteid" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="costoalquiler" class="java.math.BigDecimal"/>
+	<field name="vigencia" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="91" y="31" width="392" height="28" uuid="f7d3a396-23be-46d2-b781-9457683fb48d"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTADO DE AMBIENTES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="2" width="100" height="20" uuid="11fa7c34-041f-4cd7-b402-b7a874092fc8"/>
+				<text><![CDATA[ambienteid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="2" width="100" height="20" uuid="040b6ec5-a219-474b-b502-59d82ae2fe29"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="2" width="100" height="20" uuid="f3f28ee3-0252-4c02-9fc2-a864d887107b"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="2" width="100" height="20" uuid="204578a4-c416-47ed-a324-b750a9ff8492"/>
+				<text><![CDATA[costoalquiler]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="2" width="100" height="20" uuid="d4fb407f-4e1a-4095-b6c9-482f479cb800"/>
+				<text><![CDATA[vigencia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="13" y="8" width="100" height="20" uuid="ce635d52-225d-4267-b7ac-26ad101c39aa"/>
+				<textFieldExpression><![CDATA[$F{ambienteid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="9" width="100" height="20" uuid="edaf275d-9ea8-4275-96ca-8d3d3fcc1e0b"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="9" width="100" height="20" uuid="684a1de8-dba4-44c0-a770-e07ffafa8117"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="11" width="100" height="20" uuid="40281f58-0195-4be6-8acd-82865ea661e2"/>
+				<textFieldExpression><![CDATA[$F{costoalquiler}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="13" width="100" height="20" uuid="afa723bc-abfc-468b-bf99-8bbc8d4d6753"/>
+				<textFieldExpression><![CDATA[$F{vigencia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

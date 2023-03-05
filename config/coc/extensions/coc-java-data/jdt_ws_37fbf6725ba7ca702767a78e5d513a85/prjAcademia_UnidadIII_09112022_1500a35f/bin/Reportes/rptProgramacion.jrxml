@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="43b52907-2a1e-4bf8-8e2a-b6e2e3ae7625">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nomPer" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select D.nombre, D.descripcion, E.dnientrenador, 
+E.nombre || ' ' || E.apellidos as nombresEnt, A.nombre as nombreAmb,
+T.nombre as nombreTur,Pe.nombre as nombrePer, costo, numvacante,
+horainicio||':00 - '||horafin||':00' as hora
+from programacion P inner join deporte D on P.deporteid=D.deporteId 
+inner join entrenador E on P.dnientrenador=E.dnientrenador
+inner join ambiente A on P.ambienteid=A.ambienteid
+inner join turno T on P.turnoid=T.turnoid
+inner join periodo Pe on P.periodoid=Pe.periodoid
+inner join horario H on P.horarioid=H.horarioid
+where Pe.nombre=$P{nomPer}]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="dnientrenador" class="java.lang.String"/>
+	<field name="nombresent" class="java.lang.String"/>
+	<field name="nombreamb" class="java.lang.String"/>
+	<field name="nombretur" class="java.lang.String"/>
+	<field name="nombreper" class="java.lang.String"/>
+	<field name="costo" class="java.math.BigDecimal"/>
+	<field name="numvacante" class="java.lang.Integer"/>
+	<field name="hora" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="73" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="376" y="52" width="174" height="20" uuid="a3306871-e293-4c75-a165-db7842c57440"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="79" y="12" width="392" height="28" uuid="5f2f7999-364c-45bf-8726-5ecff2919a29"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTDE DE ENTRENADOS POR DEPORTE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="23" width="550" height="38" backcolor="#CCCCCC" uuid="57304087-df27-4247-8213-2bbb60d3dc0b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="30" width="54" height="20" uuid="6b1e4c76-6dc0-4224-abb2-195d82c2fb9c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="30" width="100" height="20" uuid="d6371d0d-800d-448b-8901-d38f403f315e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRENADOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="30" width="54" height="20" uuid="71ef8ec0-9206-44f4-a62e-76a602443a3c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMBIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="30" width="57" height="20" uuid="850bc0f8-0ef6-4cb6-94ec-ef365e8c89a9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TURNO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="30" width="45" height="20" uuid="66f603be-4b44-4d02-9884-01966c2af1e3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COSTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="490" y="30" width="60" height="20" uuid="b904d2ff-14c5-4df0-92f9-21b82b121a90"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VACANTES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="30" width="50" height="20" uuid="946c2acf-21c3-465c-9d3b-cfdf92d62aed"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORARIO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="4" width="74" height="20" uuid="ddd8e7f8-7fe7-4960-8f3d-1c7d323cba63"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="24" width="165" height="20" uuid="6d5069d4-6e5e-4865-9937-170aae33548f"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="4" width="128" height="20" uuid="7a04b3c2-58c0-4b3d-918b-6dd123cc1418"/>
+				<textFieldExpression><![CDATA[$F{nombresent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="4" width="47" height="20" uuid="f48c62c8-0df8-42c1-abe5-5e870d5ee658"/>
+				<textFieldExpression><![CDATA[$F{dnientrenador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="4" width="54" height="20" uuid="5cdb7f93-ec8d-4458-b989-c087c038fbc9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nombreamb}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="4" width="57" height="20" uuid="50c4b4a6-39f5-4c70-938e-a7febf831dbb"/>
+				<textFieldExpression><![CDATA[$F{nombretur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="4" width="45" height="20" uuid="6e068902-1caa-4416-89c9-223748c7e748"/>
+				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="4" width="60" height="20" uuid="606b92b0-9672-43c7-b704-161cfcf6aed5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{numvacante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="4" width="80" height="20" uuid="1bafc35b-ee04-4795-9825-a1a031df4a22"/>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="46" width="549" height="1" uuid="0ec61f72-7160-40c4-8b6a-65c9e95e42fa"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="528" y="11" width="22" height="20" uuid="00c48df6-f216-499d-a5cb-0258cf024fde"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

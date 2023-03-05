@@ -37,6 +37,7 @@ cd dotfiles
 cp -r config/*  ~/.config/
 cp -r fonts/*  ~/.local/share/fonts
 fc-cache -fv
+cp -r Imágenes/* ~/Imágenes/
 
 ```
 

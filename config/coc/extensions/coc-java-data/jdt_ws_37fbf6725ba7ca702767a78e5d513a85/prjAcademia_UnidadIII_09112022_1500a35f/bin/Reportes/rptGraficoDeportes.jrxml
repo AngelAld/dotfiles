@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="32913fd9-4601-409a-adaa-59ce3dab0140">
+	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="63"/>
+	<queryString>
+		<![CDATA[select E.deporteid, D.nombre, count(*)
+from especialidad E inner join deporte D on E.deporteid=D.deporteid
+group by E.deporteid,D.nombre]]>
+	</queryString>
+	<field name="deporteid" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="count" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="61" y="18" width="430" height="28" uuid="b468f80e-95a5-4996-b028-03e0017fc287"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GRÁFICO DE ENTRENADOS POR DEPORTE]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="379" y="58" width="174" height="20" uuid="43edcd48-9365-4d6f-9fae-2c3753940a03"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="167" y="30" width="250" height="31" backcolor="#CCCCCC" uuid="0d30147a-764c-4150-8dad-4c2c33a88361"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="196" y="41" width="70" height="20" uuid="c289b9fa-dfb6-451a-a61e-a894a31fd894"/>
+				<text><![CDATA[DEPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="41" width="119" height="20" uuid="e3580c6b-53f8-4623-98dd-dfaa2a89947b"/>
+				<text><![CDATA[TOTAL ENTRENADORES]]></text>
+			</staticText>
+			<line>
+				<reportElement x="288" y="30" width="1" height="31" uuid="33228b6f-27ef-4efd-be8c-bf68ee626a6a"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement x="168" y="20" width="250" height="1" uuid="23d0c9d4-03e7-48a9-a4d4-b03cf15cb2e1"/>
+			</line>
+			<textField>
+				<reportElement x="197" y="1" width="81" height="20" uuid="954b8752-3f27-46e2-8805-0693ef092886"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="1" width="61" height="20" uuid="79111dbf-6ce0-4d58-a4b3-c26f2b840aaa"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="167" y="0" width="1" height="21" uuid="a1517596-5834-4bad-ac1d-f8fa99313dae"/>
+			</line>
+			<line>
+				<reportElement x="417" y="0" width="1" height="21" uuid="59ab8761-2a6c-406a-9f80-f3dce80e948b"/>
+			</line>
+			<line>
+				<reportElement x="288" y="1" width="1" height="20" uuid="2c9bf6fb-4823-45cf-b624-f196db70fce6"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="63" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="533" y="0" width="22" height="20" uuid="7c3a695b-644f-4645-b22c-34bbd2bff1de"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="258" splitType="Stretch">
+			<pie3DChart>
+				<chart>
+					<reportElement x="0" y="27" width="304" height="218" uuid="35a13e2e-edee-4184-b905-263e83877018"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombre}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count}]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<barChart>
+				<chart>
+					<reportElement x="304" y="27" width="245" height="218" uuid="5f7b5fe6-d046-4cfc-82bb-12316d60b99d"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Total de Entrenadores por Deporte"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{nombre}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{count}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>
