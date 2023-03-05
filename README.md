@@ -3,17 +3,7 @@
 
 ### dependencies:
 
-* alacritty
-* cava
-* nvim
-* i3
-* dunst
-* i3blocks
-* flameshot
-* picom
-* neofetch
-* rofi
-* python-pywal
+
 * zsh
 * oh-my-zsh
 
@@ -26,9 +16,15 @@
 yay -S i3-gaps dunst i3blocks flameshot picom neofetch \
 python-pywal alacritty cava dunst rofi pulseaudio pcmanfm\ 
 pulseaudio-alsa pulseaudio-bluetooth pavucontrol google-chrome\
-pulseaudio-equalizer polkit-gnome lxappearance gpick\
+pulseaudio-equalizer polkit-gnome lxappearance gpick zsh\
 
 ```
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+
 
 ##### install 
 
