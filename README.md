@@ -1,14 +1,6 @@
 # dotfiles
 
-
-### dependencies:
-
-
-* zsh
-* oh-my-zsh
-
 ### Setup
-
 
 ##### dependencies:
 
