@@ -24,8 +24,10 @@
 
 ```
 yay -S i3-gaps dunst i3blocks flameshot picom neofetch \
-python-pywal alacritty cava dunst rofi pulseaudio \ 
-pulseaudio-alsa pulseaudio-bluetooth pavucontrol pulseaudio-equalizer \
+python-pywal alacritty cava dunst rofi pulseaudio pcmanfm\ 
+pulseaudio-alsa pulseaudio-bluetooth pavucontrol google-chrome\
+pulseaudio-equalizer polkit-gnome lxappearance gpick\
+
 ```
 
 ##### install 
@@ -36,7 +38,10 @@ cd dotfiles
 ```
 
 ```
-cp -r .config/*  ~/.config/
+cp -r config/*  ~/.config/
+cp -r fonts/*  ~/.local/share/fonts
+fc-cache -fv
+
 ```
 
 ```
